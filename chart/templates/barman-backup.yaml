@@ -10,11 +10,11 @@ spec:
 
     s3Credentials:
       accessKeyId:
-        name: {{ .Release.Namespace }}.cnpg-backups
+        name: cnpg-backups
         key: accessKey
 
       secretAccessKey:
-        name: {{ .Release.Namespace }}.cnpg-backups
+        name: cnpg-backups
         key: secretKey
 
     wal:
