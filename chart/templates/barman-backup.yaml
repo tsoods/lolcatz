@@ -1,0 +1,26 @@
+apiVersion: barmancloud.cnpg.io/v1
+kind: ObjectStore
+metadata:
+  name: cnpg-backups
+spec:
+  configuration:
+    destinationPath: s3://{{ .Release.Namespace }}.cnpg-backups/
+
+    endpointURL: http://{{ .Release.Namespace }}.cnpg-backups
+
+    s3Credentials:
+      accessKeyId:
+        name: {{ .Release.Namespace }}.cnpg-backups
+        key: accessKey
+
+      secretAccessKey:
+        name: {{ .Release.Namespace }}.cnpg-backups
+        key: secretKey
+
+    wal:
+      compression: gzip
+
+    data:
+      compression: gzip
+
+  retentionPolicy: "30d"
