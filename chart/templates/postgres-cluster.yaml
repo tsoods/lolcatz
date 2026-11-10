@@ -24,12 +24,22 @@ spec:
       localeCType: C
       localeCollate: C
       owner: lolcatz
+    recovery:
+      database: lolcatz
+      owner: lolcatz
+      recoveryTarget:
+        backupID: 20261110T081856
+        targetTime: '2026-11-10T08:33:45.147594Z'
+      source: cnpg-backups
+    - name: cnpg-backups
+      plugin:
+        enabled: true
+        isWALArchiver: false
+        name: barman-cloud.cloudnative-pg.io
+        parameters:
+          barmanObjectName: cnpg-backups
+          serverName: cnpg-backups
   storage:
     size: {{ .Values.database.storage }}
   resources:
     {{- toYaml .Values.database.resources | nindent 4 }}
-  plugins:
-    - name: barman-cloud.cloudnative-pg.io
-      isWALArchiver: true
-      parameters:
-        barmanObjectName: cnpg-backups
