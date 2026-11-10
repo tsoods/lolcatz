@@ -6,7 +6,7 @@ spec:
   configuration:
     destinationPath: s3://{{ .Release.Namespace }}.cnpg-backups/
 
-    endpointURL: http://{{ .Release.Namespace }}.cnpg-backups
+    endpointURL: http://minio.minio.svc.cluster.local:9000
 
     s3Credentials:
       accessKeyId:
