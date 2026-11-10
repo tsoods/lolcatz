@@ -28,3 +28,8 @@ spec:
     size: {{ .Values.database.storage }}
   resources:
     {{- toYaml .Values.database.resources | nindent 4 }}
+  plugins:
+    - name: barman-cloud.cloudnative-pg.io
+      isWALArchiver: true
+      parameters:
+        barmanObjectName: cnpg-backups
