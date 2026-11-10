@@ -7,3 +7,13 @@ spec:
   s3InstanceRef: minio/default
   quota:
     default: 10737418240
+
+apiVersion: s3.onyxia.sh/v1alpha1
+kind: Bucket
+metadata:
+  name: lolcatz-backups
+spec:
+  name: {{ .Release.Namespace }}.cnpg-backups
+  s3InstanceRef: minio/default
+  quota:
+    default: 1073741824
